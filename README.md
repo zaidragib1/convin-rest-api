@@ -6,6 +6,9 @@ Please note that due to verification requirements on the Google Cloud Dashboard,
 
 The APIs are currently running on Repl.it in a public environment.
 
+# Flowchart
+![image](https://github.com/zaidragib1/convin-rest-api/assets/110742924/8a3ddb20-66d3-4d0d-9803-9872b44036e4)
+
 # Functionality
 
 The Convin REST API follows the following procedure:
