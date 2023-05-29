@@ -1,29 +1,26 @@
-# Python on Replit
+# Convin REST API
 
-This is a template to get you started with Python on Replit. It's ready to go so you can just hit run and start coding!
+The Convin REST API allows clients to send requests to the Convin REST API server. The server will handle authentication by redirecting requests to an OAuth server. Once authenticated, the server will send requests to the Google Calendar API to retrieve events and provide the event list to the client.
 
-## Running the repl
+Please note that due to verification requirements on the Google Cloud Dashboard, this API cannot be published. To test the API, please provide a Gmail ID so that it can be added as a test user.
 
-1. Setup a new secret environment variable (the lock icon) where the key is `SECRET_KEY` and the value is
-   a randomly generated token of 32 bits of randomnese. To generate such a token type this into the shell and hit Enter:
-```
-python
-import secrets
-secrets.token_urlsafe(32)
-```
-2. Hit run!
+The APIs are currently running on Repl.it in a public environment.
 
-See this 1 minute video for a walkthrough: [https://www.loom.com/share/ecc4e738149f4d1db3bcff01758b3e71](https://www.loom.com/share/341b5574d12040fb9fcbbff150777f1c)
+# Functionality
 
-## Installing packages
+The Convin REST API follows the following procedure:
 
-To add packages to your repl, you can just import directly in the file you want to use the package in, and it will automatically be installed when you press the run button. Like below:
-```python
-import math
-import pandas as pd
-```
+## Initiating OAuth Authentication
 
-You could also install packages by using the Replit packager interface in the left sidebar.
+The endpoint /oauth is responsible for initiating OAuth authentication. It redirects the client to the OAuth server for authentication. The retrieved access token is stored in the session for subsequent requests.
+
+## Retrieving Authorization URL
+
+After initiating OAuth authentication, the endpoint /authorization-url provides the authorization URL. This URL allows the client to authorize the API to access the Google Calendar API using the access token stored in the session.
+
+## Retrieving Events
+
+Once authorized, the endpoint /events can be accessed to retrieve the events from the Google Calendar API. This endpoint uses the access token from the session to fetch the events and returns the event list to the client.
 
 ## Help
 
